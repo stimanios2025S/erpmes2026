@@ -8,10 +8,10 @@
     "build": "next build",
     "test": "node -r ./scripts/node-userinfo.cjs ./node_modules/tsx/dist/cli.mjs --test tests/*.test.ts",
     "start": "next start -p 3000",
-    "db:push": "prisma db push",
+    "db:push": "node scripts/ensure-env.cjs && prisma db push",
     "db:seed": "node -r ./scripts/node-userinfo.cjs ./node_modules/tsx/dist/cli.mjs prisma/seed.ts",
-    "db:reset": "prisma db push --force-reset --skip-generate && prisma generate && node -r ./scripts/node-userinfo.cjs ./node_modules/tsx/dist/cli.mjs prisma/seed.ts",
-    "setup": "prisma generate && prisma db push && node -r ./scripts/node-userinfo.cjs ./node_modules/tsx/dist/cli.mjs prisma/seed.ts"
+    "db:reset": "node scripts/ensure-env.cjs && prisma db push --force-reset --skip-generate && prisma generate && node -r ./scripts/node-userinfo.cjs ./node_modules/tsx/dist/cli.mjs prisma/seed.ts",
+    "setup": "node scripts/ensure-env.cjs && prisma generate && prisma db push && node -r ./scripts/node-userinfo.cjs ./node_modules/tsx/dist/cli.mjs prisma/seed.ts"
   },
   "prisma": {
     "seed": "node -r ./scripts/node-userinfo.cjs ./node_modules/tsx/dist/cli.mjs prisma/seed.ts"

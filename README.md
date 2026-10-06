@@ -9,9 +9,8 @@ Next.js app with a SQLite file on disk.
 ## Quick start
 
 ```bash
-cd "admedco et mobilix MES"
 npm install
-npm run setup      # prisma generate + create the SQLite file + seed
+npm run setup      # creates .env from .env.example, prisma generate, SQLite file + seed
 npm run dev        # http://localhost:3000
 ```
 
